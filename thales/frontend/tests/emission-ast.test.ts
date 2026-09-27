@@ -1,7 +1,7 @@
 import { describe, expect, test } from "vitest";
 import * as fs from "node:fs";
 import * as path from "node:path";
-import { schemaValidator } from "../../../../tests/helpers/schema-validator.js";
+import { schemaValidator } from "../../tests/helpers/schema-validator.js";
 import { type EmitDecl, emitModule } from "../src/emission.js";
 import {
   bridgeModule,
@@ -18,10 +18,7 @@ import {
 } from "@lakatos/tarski";
 
 const expectValidProgram = schemaValidator(
-  new URL(
-    "../../../../tarski/schemas/tarski-estree.schema.json",
-    import.meta.url,
-  ),
+  new URL("../../../tarski/schemas/tarski-estree.schema.json", import.meta.url),
   "a declaration's ast",
 );
 
@@ -92,13 +89,13 @@ function astOf(declarations: readonly EmitDecl[], name: string) {
   return d.kind === "residual" ? undefined : d.ast;
 }
 
-const FIXTURE = "engines/thales/tests/fixtures/tracer.ts";
+const FIXTURE = "thales/tests/fixtures/tracer.ts";
 const TRACER = fs.readFileSync(FIXTURE, "utf8");
 
-const CLASSES = "engines/thales/tests/fixtures/classes.ts";
+const CLASSES = "thales/tests/fixtures/classes.ts";
 const CLASSES_TEXT = fs.readFileSync(CLASSES, "utf8");
 
-const MODULE_CONSTS = "engines/thales/tests/fixtures/module-consts.ts";
+const MODULE_CONSTS = "thales/tests/fixtures/module-consts.ts";
 const MODULE_CONSTS_TEXT = fs.readFileSync(MODULE_CONSTS, "utf8");
 
 describe("a declaration's own closure", () => {
@@ -366,10 +363,7 @@ describe("what a reference is", () => {
  * any future exception visible, which is acceptance criterion 1's frontend
  * half: every emitted declaration carries an ast. */
 function storeInputs(): string[] {
-  const roots = [
-    "engines/thales/tests/fixtures",
-    "engines/thales/tests/conformance",
-  ];
+  const roots = ["thales/tests/fixtures", "thales/tests/conformance"];
   const out: string[] = [];
   const walk = (dir: string): void => {
     for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
