@@ -47,11 +47,11 @@ extraction, and prefix/formula parsing — lives in [`lemma/`](../) at
 the repository root, exercised against `fixtures/` in CI. Two engines
 build on it, one from each side of the proofs-and-refutations dialectic:
 
-- [`pabst/`](../../pabst/) (TypeScript) — the **refutation
+- [`pabst`](https://github.com/lakatos-ts/pabst) (TypeScript) — the **refutation
   engine**: compiles properties to
   [fast-check](https://fast-check.dev/) runs and hunts for
   counterexamples.
-- [`thales/`](../../thales/) (Lean 4) — the **proof
+- [`thales`](https://github.com/lakatos-ts/thales) (Lean 4) — the **proof
   engine**: compiles the annotated code to Lean and attempts to prove each
   property for all inputs.
 
