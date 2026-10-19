@@ -24,7 +24,7 @@ function fnBody(d: EmitDecl): EmitStmt[] {
   return d.body;
 }
 
-const FIXTURE = "lemma/tests/fixtures/emission/tracer.ts";
+const FIXTURE = "tests/fixtures/emission/tracer.ts";
 const read = () => fs.readFileSync(FIXTURE, "utf8");
 
 const expectValidEmission = schemaValidator(
@@ -1943,7 +1943,7 @@ describe("unsupported ranges classify NotTried before emission", () => {
 });
 
 describe("Object.is models as SameValue", () => {
-  const FILE = "lemma/tests/fixtures/emission/tracer.ts"; // any resolvable path; no imports are followed
+  const FILE = "tests/fixtures/emission/tracer.ts"; // any resolvable path; no imports are followed
 
   test("a branch condition walks to a same-value node", () => {
     const src = [
@@ -2145,7 +2145,7 @@ describe("Object.is models as SameValue", () => {
 });
 
 describe("equation guards", () => {
-  const FILE = "lemma/tests/fixtures/emission/tracer.ts";
+  const FILE = "tests/fixtures/emission/tracer.ts";
   const src = (formula: string) =>
     [
       `/** @ensures{p} ${formula} */`,
@@ -2339,7 +2339,7 @@ describe("equation guards", () => {
 });
 
 describe("NaN and Infinity resolve as expression atoms", () => {
-  const FILE = "lemma/tests/fixtures/emission/tracer.ts"; // any resolvable path; no imports are followed
+  const FILE = "tests/fixtures/emission/tracer.ts"; // any resolvable path; no imports are followed
 
   test("NaN in a body walks to a num atom", () => {
     const src = [
@@ -2515,7 +2515,7 @@ describe("NaN and Infinity resolve as expression atoms", () => {
 });
 
 describe("Math.sqrt models as Float.sqrt", () => {
-  const FILE = "lemma/tests/fixtures/emission/tracer.ts"; // any resolvable path; no imports are followed
+  const FILE = "tests/fixtures/emission/tracer.ts"; // any resolvable path; no imports are followed
 
   test("a returned Math.sqrt walks to a builtin node", () => {
     const src = [
@@ -2728,7 +2728,7 @@ describe("Math.sqrt models as Float.sqrt", () => {
 });
 
 describe("builtin member calls model as Float primitives", () => {
-  const FILE = "lemma/tests/fixtures/emission/tracer.ts"; // any resolvable path; no imports are followed
+  const FILE = "tests/fixtures/emission/tracer.ts"; // any resolvable path; no imports are followed
 
   test("a returned Math.abs walks to a builtin node", () => {
     const src = [
@@ -3389,7 +3389,7 @@ describe("builtin member calls model as Float primitives", () => {
 });
 
 describe("logical operators on boolean operands", () => {
-  const FILE = "lemma/tests/fixtures/emission/tracer.ts";
+  const FILE = "tests/fixtures/emission/tracer.ts";
 
   test("|| over comparisons models in a branch condition", () => {
     const { emission, classified } = emitModule(
@@ -3580,7 +3580,7 @@ describe("logical operators on boolean operands", () => {
 });
 
 describe("conditional expressions", () => {
-  const FILE = "lemma/tests/fixtures/emission/tracer.ts";
+  const FILE = "tests/fixtures/emission/tracer.ts";
 
   test("the -0 normalization walks to a cond node", () => {
     const { emission, classified } = emitModule(
@@ -4191,7 +4191,7 @@ describe("class declarations (#129)", () => {
 });
 
 describe("builtin member reads model as the library's constants", () => {
-  const FILE = "lemma/tests/fixtures/emission/tracer.ts"; // any resolvable path; no imports are followed
+  const FILE = "tests/fixtures/emission/tracer.ts"; // any resolvable path; no imports are followed
 
   test("a returned Number.EPSILON product walks to a builtin read", () => {
     const src = [

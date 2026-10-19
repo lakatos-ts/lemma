@@ -374,7 +374,7 @@ describe("lemma usage", () => {
 
 // The built file, run the way a person runs it. The build is the
 // suite-wide globalSetup's.
-describe("lemma/dist/cli.js", () => {
+describe("dist/cli.js", () => {
   const cli = path.join(
     path.dirname(fileURLToPath(import.meta.url)),
     "..",
@@ -401,7 +401,7 @@ describe("lemma/dist/cli.js", () => {
   });
 });
 
-describe("lemma/dist/cli.js: a slow reader", () => {
+describe("dist/cli.js: a slow reader", () => {
   const cli = path.join(
     path.dirname(fileURLToPath(import.meta.url)),
     "..",

@@ -1,9 +1,9 @@
 /**
  * Lemma's public surface: the names the CLI and the engines may use.
  *
- * Everything else under `lemma/src/` is internal — exported only so one lemma
+ * Everything else under `src/` is internal — exported only so one lemma
  * module can call another, so a lemma test can reach it, or so `.d.ts` emit can
- * name a type in an exported signature. Consumers outside `lemma/` import this
+ * name a type in an exported signature. Consumers outside this package import this
  * module and nothing else; `exports` in `package.json` enforces that.
  */
 

@@ -20,12 +20,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lakatos-ts/lakatos.git",
-    "directory": "lemma"
+    "url": "git+https://github.com/lakatos-ts/lemma.git"
   },
-  "homepage": "https://github.com/lakatos-ts/lakatos#readme",
+  "homepage": "https://github.com/lakatos-ts/lemma#readme",
   "bugs": {
-    "url": "https://github.com/lakatos-ts/lakatos/issues"
+    "url": "https://github.com/lakatos-ts/lemma/issues"
   },
   "exports": {
     ".": {
@@ -33,11 +32,27 @@
       "default": "./dist/index.js"
     }
   },
+  "scripts": {
+    "build": "tsc -b",
+    "typecheck": "tsc -b && tsc -p tsconfig.tests.json",
+    "test": "vitest run",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "coverage": "vitest run --coverage"
+  },
   "dependencies": {
     "typescript": "^6.0.3"
   },
   "peerDependencies": {
     "fast-check": "^4.8.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "@vitest/coverage-v8": "^5.0.3",
+    "ajv": "^8.20.0",
+    "fast-check": "^4.10.2",
+    "prettier": "3.9.9",
+    "vitest": "^5.0.0"
   },
   "publishConfig": {
     "access": "public"

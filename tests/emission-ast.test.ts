@@ -85,13 +85,13 @@ function astOf(declarations: readonly EmitDecl[], name: string) {
   return d.kind === "residual" ? undefined : d.ast;
 }
 
-const FIXTURE = "lemma/tests/fixtures/emission/tracer.ts";
+const FIXTURE = "tests/fixtures/emission/tracer.ts";
 const TRACER = fs.readFileSync(FIXTURE, "utf8");
 
-const CLASSES = "lemma/tests/fixtures/emission/classes.ts";
+const CLASSES = "tests/fixtures/emission/classes.ts";
 const CLASSES_TEXT = fs.readFileSync(CLASSES, "utf8");
 
-const MODULE_CONSTS = "lemma/tests/fixtures/emission/module-consts.ts";
+const MODULE_CONSTS = "tests/fixtures/emission/module-consts.ts";
 const MODULE_CONSTS_TEXT = fs.readFileSync(MODULE_CONSTS, "utf8");
 
 describe("a declaration's own closure", () => {
